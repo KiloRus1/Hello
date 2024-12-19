@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Привет!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s;
+        }
+        .text {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(90deg, green, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="text">Привет!</div>
+        <button class="button" id="toggleButton">Сменить фон</button>
+    </div>
+
+    <script>
+        const button = document.getElementById('toggleButton');
+        let isWhite = true;
+
+        button.addEventListener('click', () => {
+            document.body.style.backgroundColor = isWhite ? 'black' : 'white';
+            button.style.backgroundColor = isWhite ? 'black' : 'gray';
+            button.style.color = isWhite ? 'white' : 'black';
+            isWhite = !isWhite;
+        });
+    </script>
+</body>
+</html>
